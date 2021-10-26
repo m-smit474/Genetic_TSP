@@ -23,8 +23,8 @@ def solution():
 def fitness(solution):
     totalDistance = 0
     for i in range(len(solution) - 1):
-        city = tsp.iloc[i]
-        city2 = tsp.iloc[i+1]
+        city = tsp.loc[solution[i]]
+        city2 = tsp.loc[solution[i+1]]
         totalDistance += pointDistance(city.loc["x"],city.loc["y"],city2.loc["x"],city2.loc["y"])
 
 # Return inverse of distance
@@ -33,4 +33,12 @@ def fitness(solution):
     return 1/totalDistance
 
 
-print(fitness([1,2,3,4,5,6,7]))
+
+# Testing
+A = solution()
+print(A)
+print(fitness(A))
+
+B = solution()
+print(B)
+print(fitness(B))
