@@ -81,12 +81,12 @@ def ga():
     # Then we need to control how the various genetic operators are applied. 
     num_parents_mating = 2
     parent_selection_type = "sss"
-    keep_parents = 1
+    keep_parents = 2
 
     crossover_type = "single_point"
 
     mutation_type = "random"
-    mutation_percent_genes = 1
+    mutation_percent_genes = 2
     
     ga_instance = pygad.GA(num_generations=num_generations,
                        num_parents_mating=num_parents_mating,
