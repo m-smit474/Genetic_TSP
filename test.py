@@ -24,10 +24,21 @@ def solution():
 # ** I believe this currently doesn't count the last city
 def fitness(solution, solution_idx):
     totalDistance = 0
+    
+    firstCity = [0,0]
+    firstCityx = firstCity.pop(0)
+    firstCityy = firstCity.pop(0)
+
     for i in range(len(solution) - 1):
         city = tsp.loc[solution[i]]
         city2 = tsp.loc[solution[i+1]]
         totalDistance += pointDistance(city.loc["x"],city.loc["y"],city2.loc["x"],city2.loc["y"])
+    
+    lastCity = tsp.loc[solution[i+1]]
+    
+    totalDistance += pointDistance(firstCityx,firstCityy,lastCity.loc["x"],lastCity.loc["y"])
+
+    
 
 # Return inverse of distance
 # Small distance is high fitness
