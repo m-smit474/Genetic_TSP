@@ -3,7 +3,8 @@ import random
 import pygad
 from datetime import datetime
 
-tsp = pd.read_csv("Data/tsp1.csv", index_col=0)
+file = input("Enter file path: ")
+tsp = pd.read_csv(file, index_col=0)
 
 # gets number of rows
 numRows = tsp.shape[0]
@@ -21,7 +22,6 @@ def solution():
     return sol
 
 # Determines total distance of a given solution
-# ** I believe this currently doesn't count the last city
 def fitness(solution, solution_idx):
     totalDistance = 0
     
