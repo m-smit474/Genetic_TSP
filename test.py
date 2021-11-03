@@ -103,7 +103,7 @@ def ga():
 
 sol = ga()
 
-print(sol)
+#print(sol)
 # Testing
 """
 A = solution()
