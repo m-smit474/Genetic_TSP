@@ -113,15 +113,3 @@ def ga():
 
 
 sol = ga()
-
-#print(sol)
-# Testing
-"""
-A = solution()
-print(A)
-print(fitness(A))
-
-B = solution()
-print(B)
-print(fitness(B))
-"""
