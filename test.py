@@ -1,8 +1,17 @@
+"""
+Date: Nov 3rd, 2021
+Authors: Josh Lewis, Matt Smith
+--------------------------------
+This program attempts to solve the travelling salesman problem
+by using a genetic algorithm from the PyGad library
+"""
+
 import pandas as pd
 import random
 import pygad
 from datetime import datetime
 
+# read file
 file = input("Enter file path: ")
 tsp = pd.read_csv(file, index_col=0)
 
@@ -14,14 +23,14 @@ def pointDistance(x1, y1, x2, y2):
     distance = ((x2-x1)**2 + (y2-y1)**2)**0.5
     return distance
 
-# Generates a random solution
+# Generates a random path to take to get to each city
 def solution():
     sol = []
     for i in range(numRows):
         sol.append(random.randint(1,numRows))
     return sol
 
-# Determines total distance of a given solution
+# Determines total distance of a given path/solution
 def fitness(solution, solution_idx):
     totalDistance = 0
     
@@ -38,21 +47,15 @@ def fitness(solution, solution_idx):
     
     totalDistance += pointDistance(firstCityx,firstCityy,lastCity.loc["x"],lastCity.loc["y"])
 
-    
-
-# Return inverse of distance
 # Small distance is high fitness
 # Alternative could be -1 * totalDistance
     return 1/totalDistance
 
-# The on_generation is a function that will be called at the end of each generation. 
-# In this case we will print out the gen number. 
+
 
 def on_generation(g):
     print(datetime.now(), "Gen", g.generations_completed)
-    # print("Best Solution", captures(ga_instance.best_solution(),1))
-    #for p in ga.population:
-       # print(p, captures(p,1)) 
+     
 
 # run the ga. 
 def ga(): 
